@@ -42,7 +42,7 @@ echo "[OK] Docker instalado."
 
 echo "Configurando Docker para o usuário 'deploy' e criando container Redis..."
 usermod -aG docker deploy
-docker run --name redis-whaticket -p 5000:6379 --restart always --detach redis redis-server --requirepass 123456
+docker run --name redis-whaticket -p 5000:6379 --restart always --detach redis redis-server --requirepass 12345678
 sleep 2
 echo "[OK] Docker configurado e container Redis criado."
 
@@ -50,7 +50,7 @@ echo "[OK] Docker configurado e container Redis criado."
 echo "Configurando banco de dados PostgreSQL..."
 sudo -u postgres createdb whaticket
 sudo -u postgres psql -c "CREATE USER whaticket SUPERUSER INHERIT CREATEDB CREATEROLE;"
-sudo -u postgres psql -c "ALTER USER whaticket PASSWORD '123456';"
+sudo -u postgres psql -c "ALTER USER whaticket PASSWORD '12345678';"
 sleep 2
 echo "[OK] Banco de dados configurado."
 
@@ -68,7 +68,7 @@ echo "[OK] Snap instalado."
 
 # Clonando repositório
 echo "Clonando repositório Whaticket..."
-git clone https://github.com/suportetcheinfosr/whaticket.git /home/deploy/whaticket
+git clone https://github.com/suportetcheinfosr/whaticketSis.git /home/deploy/whaticket
 chown deploy:deploy -R /home/deploy/whaticket
 sleep 2
 echo "[OK] Repositório clonado."
